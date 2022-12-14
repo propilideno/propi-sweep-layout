@@ -5,10 +5,12 @@
 // On Linux, use US, intl., with dead keys.
 enum layout_names {
     COLEMAK,
+    COLEMAK_MAC,
     QWERTY,
     SYM,
     SYM2,
     EXT,
+    EXT_MAC,
     FUNC,
     ACC,
     GAME_MOBA,
@@ -45,6 +47,7 @@ enum custom_keycodes {
     GRV,
     P1,
     P2,
+    P3,
 };
 
 enum combos {
@@ -324,7 +327,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case P1:
             if (record->event.pressed) {
                 tap_code(KC_ENT);
-                send_string("Ajuda arrombado");
+                send_string("Estou indo!");
                 tap_code(KC_ENT);
             }
             break;
@@ -332,7 +335,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case P2:
             if (record->event.pressed) {
                 tap_code(KC_ENT);
-                send_string("Time lixo pqp");
+                send_string("Ajuda aqui, por favor.");
+                tap_code(KC_ENT);
+            }
+            break;
+
+        case P3:
+            if (record->event.pressed) {
+                tap_code(KC_ENT);
+                send_string("Entendido.");
                 tap_code(KC_ENT);
             }
             break;
@@ -380,6 +391,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_Z, KC_X, KC_C, KC_D, KC_V,                   KC_K, KC_H, KC_COMM, KC_DOT, KC_SLSH,
         MO(EXT), LSFT_T(KC_SPC),                    KC_SPC, MO(SYM)),
 
+[COLEMAK_MAC] = LAYOUT(
+    KC_Q, KC_W, KC_F, KC_P, KC_B,                   KC_J, KC_L, KC_U, KC_Y, KC_SCLN,
+    KC_A, KC_R, KC_S, KC_T, KC_G,                   KC_M, KC_N, KC_E, KC_I, KC_O, 
+    KC_Z, KC_X, KC_C, KC_D, KC_V,                   KC_K, KC_H, KC_COMM, KC_DOT, KC_SLSH,
+        MO(EXT_MAC), LSFT_T(KC_SPC),                    KC_SPC, MO(SYM)),
+
 [QWERTY] = LAYOUT(
     KC_Q, KC_W, KC_E, KC_R, KC_T,                   KC_Y, KC_U, KC_I, KC_O, KC_P,
     KC_A, KC_S, KC_D, KC_F, KC_G,                   KC_H, KC_J, KC_K, KC_L, KC_SCLN,
@@ -404,16 +421,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     LCTL(KC_Z), LCTL(KC_X), LCTL(KC_C), LCTL(KC_V), KC_TAB,      LCTL(KC_BSPC), KC_BSPC, KC_NO, KC_NO, KC_NO,
                                             KC_TRNS, KC_DEL,     KC_ENT, MO(FUNC)),
 
+[EXT_MAC] = LAYOUT(
+    KC_ESC, LGUI(KC_W), LGUI(KC_F), LSFT(KC_V), LSFT(KC_I),      KC_PGDN, KC_PGUP, KC_HOME, KC_END, KC_CAPS,
+    KC_LALT, KC_LCTL, KC_LSFT, KC_LGUI, KC_RALT,                 LGUI(KC_T), KC_LEFT, KC_DOWN, KC_UP, KC_RIGHT,
+    LGUI(KC_Z), LGUI(KC_X), LGUI(KC_C), LGUI(KC_V), KC_TAB,      LGUI(KC_BSPC), KC_BSPC, KC_NO, KC_NO, KC_NO,
+                                            KC_TRNS, KC_DEL,     KC_ENT, MO(FUNC)),
+
 [FUNC] = LAYOUT(
     KC_F1, KC_F2, KC_F3, KC_F4, KC_F5,                   KC_F6, KC_F7, KC_F8, KC_F9, KC_F10,
     KC_LALT, KC_LCTL, KC_LSFT, KC_LGUI, KC_RALT,         KC_F11, KC_F12, KC_PSCR, KC_NO,KC_NO,
-    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                   KC_NO, KC_NO, LCG_SWP, LCG_NRM, QK_BOOT,
+    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                   KC_NO, KC_NO, KC_NO, KC_NO, QK_BOOT,
                         KC_TRNS,KC_NO,                   KC_NO, KC_TRNS),
 
 
 [ACC] = LAYOUT(
     KC_NO, A_ACUTE, E_ACUTE, O_ACUTE, I_ACUTE,       TO(QWERTY), KC_NO, KC_NO, KC_NO, KC_NO,
-    A_GRV, A_CIRC, E_CIRC, O_CIRC, C_ACUTE,          TO(GAME_MOBA), KC_NO, KC_NO, KC_NO, KC_NO,
+    A_GRV, A_CIRC, E_CIRC, O_CIRC, C_ACUTE,          TO(GAME_MOBA), TO(COLEMAK_MAC), KC_NO, KC_NO, KC_NO,
     KC_NO, A_TILDE, KC_NO, O_TILDE, U_ACUTE,         TO(GAME_FPS), TO(NAV), KC_NO, KC_NO, KC_NO,
                                 KC_NO, KC_LSFT,        KC_NO, KC_NO),
 
