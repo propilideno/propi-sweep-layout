@@ -47,7 +47,6 @@ enum custom_keycodes {
     TILDE,
     GRV,
     SWP_MAC,
-    CUSTOM_EXT,
     P1,
     P2,
     P3,
@@ -338,17 +337,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             break;
 
-        case CUSTOM_EXT:
-            if (record->event.pressed) {
-                if(mac_state == false){
-                    MO(EXT);
-                }
-                else{
-                    MO(EXT_MAC);
-                }
-            }
-            break;
-
         case P1:
             if (record->event.pressed) {
                 tap_code(KC_ENT);
@@ -411,10 +399,16 @@ Navigation layer (arrow keys and mouse control) - DEVELOPMENT
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [COLEMAK] = LAYOUT(
-    KC_Q, KC_W, KC_F, KC_P, KC_B,                   KC_J, KC_L, KC_U, KC_Y, KC_SCLN,
-    KC_A, KC_R, KC_S, KC_T, KC_G,                   KC_M, KC_N, KC_E, KC_I, KC_O, 
-    KC_Z, KC_X, KC_C, KC_D, KC_V,                   KC_K, KC_H, KC_COMM, KC_DOT, KC_SLSH,
-      CUSTOM_EXT, LSFT_T(KC_SPC),                   KC_SPC, MO(SYM)),
+    KC_Q, KC_W, KC_F, KC_P, KC_B,                                                   KC_J, KC_L, KC_U, KC_Y, KC_SCLN,
+    LALT_T(KC_A), LCTL_T(KC_R), LSFT_T(KC_S), LGUI_T(KC_T), KC_G,                   LALT_T(KC_M), LCTL_T(KC_N), LSFT_T(KC_E), LGUI_T(KC_I), KC_O, 
+    KC_Z, KC_X, KC_C, KC_D, KC_V,                                                   KC_K, KC_H, KC_COMM, KC_DOT, KC_SLSH,
+        MO(EXT) , LSFT_T(KC_SPC),                                                   KC_SPC, MO(SYM)),
+
+[COLEMAK_MAC] = LAYOUT(
+    KC_Q, KC_W, KC_F, KC_P, KC_B,                                                   KC_J, KC_L, KC_U, KC_Y, KC_SCLN,
+    LALT_T(KC_A), LCTL_T(KC_R), LSFT_T(KC_S), LGUI_T(KC_T), KC_G,                   LALT_T(KC_M), LCTL_T(KC_N), LSFT_T(KC_E), LGUI_T(KC_I), KC_O, 
+    KC_Z, KC_X, KC_C, KC_D, KC_V,                                                   KC_K, KC_H, KC_COMM, KC_DOT, KC_SLSH,
+    MO(EXT_MAC) , LSFT_T(KC_SPC),                                                   KC_SPC, MO(SYM)),
 
 [QWERTY] = LAYOUT(
     KC_Q, KC_W, KC_E, KC_R, KC_T,                   KC_Y, KC_U, KC_I, KC_O, KC_P,
@@ -424,7 +418,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [SYM] = LAYOUT(
     KC_1, KC_2, KC_3, KC_4, KC_5,                 KC_6, KC_7, KC_8, KC_9, KC_0, 
-    KC_LT, KC_LPRN, KC_LBRC, KC_LCBR, KC_DLR,     KC_EQL, KC_QUES, KC_QUOT, KC_EQL, KC_ASTR, 
+    KC_LT, KC_LPRN, KC_LBRC, KC_LCBR, KC_DLR,     KC_EQL, KC_QUES, KC_QUOT, KC_PLUS, KC_ASTR, 
     KC_GT, KC_RPRN, KC_RBRC, KC_RCBR, KC_PERC,    KC_AT, KC_EXLM, KC_DQUO, KC_MINS, KC_SLSH, 
                           MO(FUNC), MO(SYM2),     KC_NO, KC_TRNS),
 
@@ -435,21 +429,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                          KC_NO, KC_TRNS,              KC_NO, KC_TRNS),
 
 [EXT] = LAYOUT(
-    KC_ESC, LCTL(KC_W), LCTL(KC_F), LSFT(KC_V), LSFT(KC_I),      KC_PGDN, KC_PGUP, KC_HOME, KC_END, KC_CAPS,
+    KC_ESC, LCTL(KC_W), KC_FIND, LSFT(KC_V), LSFT(KC_I),         KC_CAPS, KC_HOME, KC_PGDN, KC_PGUP, KC_END,
     KC_LALT, KC_LCTL, KC_LSFT, KC_LGUI, KC_RALT,                 LCTL(KC_T), KC_LEFT, KC_DOWN, KC_UP, KC_RIGHT,
-    LCTL(KC_Z), LCTL(KC_X), LCTL(KC_C), LCTL(KC_V), KC_TAB,      LCTL(KC_BSPC), KC_BSPC, KC_NO, KC_NO, KC_NO,
-                                            KC_TRNS, KC_DEL,     KC_ENT, MO(FUNC)),
+    KC_UNDO, KC_CUT, KC_COPY, KC_PASTE, KC_TAB,                  LCTL(KC_BSPC), KC_BSPC, KC_NO, KC_NO, KC_AGAIN,
+                                KC_TRNS, KC_DEL,                 KC_ENT, MO(FUNC)),
 
 [EXT_MAC] = LAYOUT(
-    KC_ESC, LGUI(KC_W), LGUI(KC_F), LSFT(KC_V), LSFT(KC_I),      KC_PGDN, KC_PGUP, KC_HOME, KC_END, KC_CAPS,
+    KC_ESC, LGUI(KC_W), KC_FIND, LSFT(KC_V), LSFT(KC_I),         KC_CAPS, KC_HOME, KC_PGDN, KC_PGUP, KC_END,
     KC_LALT, KC_LCTL, KC_LSFT, KC_LGUI, KC_RALT,                 LGUI(KC_T), KC_LEFT, KC_DOWN, KC_UP, KC_RIGHT,
-    LGUI(KC_Z), LGUI(KC_X), LGUI(KC_C), LGUI(KC_V), KC_TAB,      LGUI(KC_BSPC), KC_BSPC, KC_NO, KC_NO, KC_NO,
-                                            KC_TRNS, KC_DEL,     KC_ENT, MO(FUNC)),
+    KC_UNDO, KC_CUT, KC_COPY, KC_PASTE, KC_TAB,                  LALT(KC_BSPC), KC_BSPC, KC_NO, KC_NO, KC_AGAIN,
+                                KC_TRNS, KC_DEL,                 KC_ENT, MO(FUNC)),
 
 [FUNC] = LAYOUT(
     KC_F1, KC_F2, KC_F3, KC_F4, KC_F5,                   KC_F6, KC_F7, KC_F8, KC_F9, KC_F10,
     KC_LALT, KC_LCTL, KC_LSFT, KC_LGUI, KC_RALT,         KC_F11, KC_F12, KC_PSCR, KC_NO,KC_NO,
-    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                   KC_NO, KC_NO, KC_NO, KC_NO, QK_BOOT,
+    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                   SWP_MAC, KC_NO, KC_NO, KC_NO, QK_BOOT,
                         KC_TRNS,KC_NO,                   KC_NO, KC_TRNS),
 
 
