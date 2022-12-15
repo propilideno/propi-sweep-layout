@@ -24,6 +24,7 @@ enum layout_names {
 // #define REPEAT LT(SYM, KC_NO)
 
 uint8_t mod_state;
+bool mac_state = false;
 
 // Macros definitions for accented characters.
 // This is necessary because not every accented character is available with AltGr.
@@ -45,6 +46,8 @@ enum custom_keycodes {
     C_ACUTE,
     TILDE,
     GRV,
+    SWP_MAC,
+    CUSTOM_EXT,
     P1,
     P2,
     P3,
@@ -324,6 +327,28 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             break;
 
+        case SWP_MAC:
+            if (record->event.pressed) {
+                if(mac_state == false){
+                    mac_state = true;
+                }
+                else{
+                    mac_state = false;
+                }
+            }
+            break;
+
+        case CUSTOM_EXT:
+            if (record->event.pressed) {
+                if(mac_state == false){
+                    MO(EXT);
+                }
+                else{
+                    MO(EXT_MAC);
+                }
+            }
+            break;
+
         case P1:
             if (record->event.pressed) {
                 tap_code(KC_ENT);
@@ -389,13 +414,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_Q, KC_W, KC_F, KC_P, KC_B,                   KC_J, KC_L, KC_U, KC_Y, KC_SCLN,
     KC_A, KC_R, KC_S, KC_T, KC_G,                   KC_M, KC_N, KC_E, KC_I, KC_O, 
     KC_Z, KC_X, KC_C, KC_D, KC_V,                   KC_K, KC_H, KC_COMM, KC_DOT, KC_SLSH,
-        MO(EXT), LSFT_T(KC_SPC),                    KC_SPC, MO(SYM)),
-
-[COLEMAK_MAC] = LAYOUT(
-    KC_Q, KC_W, KC_F, KC_P, KC_B,                   KC_J, KC_L, KC_U, KC_Y, KC_SCLN,
-    KC_A, KC_R, KC_S, KC_T, KC_G,                   KC_M, KC_N, KC_E, KC_I, KC_O, 
-    KC_Z, KC_X, KC_C, KC_D, KC_V,                   KC_K, KC_H, KC_COMM, KC_DOT, KC_SLSH,
-        MO(EXT_MAC), LSFT_T(KC_SPC),                    KC_SPC, MO(SYM)),
+      CUSTOM_EXT, LSFT_T(KC_SPC),                   KC_SPC, MO(SYM)),
 
 [QWERTY] = LAYOUT(
     KC_Q, KC_W, KC_E, KC_R, KC_T,                   KC_Y, KC_U, KC_I, KC_O, KC_P,
