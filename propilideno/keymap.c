@@ -399,16 +399,17 @@ Navigation layer (arrow keys and mouse control) - DEVELOPMENT
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [COLEMAK] = LAYOUT(
-    KC_Q, KC_W, KC_F, KC_P, KC_B,                                                   KC_J, KC_L, KC_U, KC_Y, KC_SCLN,
-    LALT_T(KC_A), LCTL_T(KC_R), LSFT_T(KC_S), LGUI_T(KC_T), KC_G,                   LALT_T(KC_M), LCTL_T(KC_N), LSFT_T(KC_E), LGUI_T(KC_I), KC_O, 
-    KC_Z, KC_X, KC_C, KC_D, KC_V,                                                   KC_K, KC_H, KC_COMM, KC_DOT, KC_SLSH,
-        MO(EXT) , LSFT_T(KC_SPC),                                                   KC_SPC, MO(SYM)),
+    KC_Q, KC_W, KC_F, KC_P, KC_B,                                       KC_J, KC_L, KC_U, KC_Y, KC_SCLN,
+    KC_A, KC_R, KC_S, KC_T, KC_G,                                       KC_M, KC_N, KC_E, KC_I, KC_O, 
+    KC_Z, LCTL_T(KC_X), LALT_T(KC_C), LGUI_T(KC_D), KC_V,               KC_K, LGUI_T(KC_H), LALT_T(KC_COMM), LCTL_T(KC_DOT), KC_SLSH,
+                                MO(EXT) , LSFT_T(KC_SPC),               KC_SPC, MO(SYM)),
+
 
 [COLEMAK_MAC] = LAYOUT(
-    KC_Q, KC_W, KC_F, KC_P, KC_B,                                                   KC_J, KC_L, KC_U, KC_Y, KC_SCLN,
-    LALT_T(KC_A), LCTL_T(KC_R), LSFT_T(KC_S), LGUI_T(KC_T), KC_G,                   LALT_T(KC_M), LCTL_T(KC_N), LSFT_T(KC_E), LGUI_T(KC_I), KC_O, 
-    KC_Z, KC_X, KC_C, KC_D, KC_V,                                                   KC_K, KC_H, KC_COMM, KC_DOT, KC_SLSH,
-    MO(EXT_MAC) , LSFT_T(KC_SPC),                                                   KC_SPC, MO(SYM)),
+    KC_Q, KC_W, KC_F, KC_P, KC_B,                                       KC_J, KC_L, KC_U, KC_Y, KC_SCLN,
+    KC_A, KC_R, KC_S, KC_T, KC_G,                                       KC_M, KC_N, KC_E, KC_I, KC_O, 
+    KC_Z, LCTL_T(KC_X), LALT_T(KC_C), LGUI_T(KC_D), KC_V,               KC_K, LGUI_T(KC_H), LALT_T(KC_COMM), LCTL_T(KC_DOT), KC_SLSH,
+                            MO(EXT_MAC) , LSFT_T(KC_SPC),               KC_SPC, MO(SYM)),
 
 [QWERTY] = LAYOUT(
     KC_Q, KC_W, KC_E, KC_R, KC_T,                   KC_Y, KC_U, KC_I, KC_O, KC_P,
@@ -423,29 +424,27 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                           MO(FUNC), MO(SYM2),     KC_NO, KC_TRNS),
 
 [SYM2] = LAYOUT(
-    KC_GRV, KC_TILDE, KC_CIRC, KC_HASH, KC_NO,       KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                 
+    KC_GRV, KC_TILDE, KC_CIRC, KC_HASH, KC_NO,        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                 
     KC_PIPE, KC_AMPR, KC_BSLS, KC_UNDS, KC_NO,        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,     
     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,     
                          KC_NO, KC_TRNS,              KC_NO, KC_TRNS),
 
 [EXT] = LAYOUT(
-    KC_ESC, LCTL(KC_W), KC_FIND, LSFT(KC_V), LSFT(KC_I),         KC_CAPS, KC_HOME, KC_PGDN, KC_PGUP, KC_END,
-    KC_LALT, KC_LCTL, KC_LSFT, KC_LGUI, KC_RALT,                 LCTL(KC_T), KC_LEFT, KC_DOWN, KC_UP, KC_RIGHT,
-    KC_UNDO, KC_CUT, KC_COPY, KC_PASTE, KC_TAB,                  LCTL(KC_BSPC), KC_BSPC, KC_NO, KC_NO, KC_AGAIN,
-                                KC_TRNS, KC_DEL,                 KC_ENT, MO(FUNC)),
-
+    KC_ESC, LCTL(KC_W), LCTL(KC_F), LSFT(KC_V), LSFT(KC_I),            KC_CAPS, KC_HOME, KC_PGDN, KC_PGUP, KC_END,
+    KC_LCTL, KC_LALT, KC_LSFT, KC_LGUI, LCTL(KC_A),                    LCTL(KC_T), KC_LEFT, KC_DOWN, KC_UP, KC_RIGHT,
+    LCTL(KC_Z), LCTL(KC_X), LCTL(KC_C), LCTL(KC_P), KC_TAB,            LCTL(KC_BSPC), KC_BSPC, KC_NO, KC_NO, KC_AGAIN,
+                                           KC_TRNS, KC_DEL,            KC_ENT, MO(FUNC)),
 [EXT_MAC] = LAYOUT(
-    KC_ESC, LGUI(KC_W), KC_FIND, LSFT(KC_V), LSFT(KC_I),         KC_CAPS, KC_HOME, KC_PGDN, KC_PGUP, KC_END,
-    KC_LALT, KC_LCTL, KC_LSFT, KC_LGUI, KC_RALT,                 LGUI(KC_T), KC_LEFT, KC_DOWN, KC_UP, KC_RIGHT,
-    KC_UNDO, KC_CUT, KC_COPY, KC_PASTE, KC_TAB,                  LALT(KC_BSPC), KC_BSPC, KC_NO, KC_NO, KC_AGAIN,
-                                KC_TRNS, KC_DEL,                 KC_ENT, MO(FUNC)),
+    KC_ESC, LGUI(KC_W), LGUI(KC_F), LSFT(KC_V), LSFT(KC_I),            KC_CAPS, KC_HOME, KC_PGDN, KC_PGUP, KC_END,
+    KC_LCTL, KC_LALT, KC_LSFT, KC_LGUI, LGUI(KC_A),                    LALT(KC_T), KC_LEFT, KC_DOWN, KC_UP, KC_RIGHT,
+    LGUI(KC_Z), LGUI(KC_X), LGUI(KC_C), LGUI(KC_P), KC_TAB,            LALT(KC_BSPC), KC_BSPC, KC_NO, KC_NO, KC_AGAIN,
+                                           KC_TRNS, KC_DEL,            KC_ENT, MO(FUNC)),
 
 [FUNC] = LAYOUT(
     KC_F1, KC_F2, KC_F3, KC_F4, KC_F5,                   KC_F6, KC_F7, KC_F8, KC_F9, KC_F10,
     KC_LALT, KC_LCTL, KC_LSFT, KC_LGUI, KC_RALT,         KC_F11, KC_F12, KC_PSCR, KC_NO,KC_NO,
     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                   SWP_MAC, KC_NO, KC_NO, KC_NO, QK_BOOT,
                         KC_TRNS,KC_NO,                   KC_NO, KC_TRNS),
-
 
 [ACC] = LAYOUT(
     KC_NO, A_ACUTE, E_ACUTE, O_ACUTE, I_ACUTE,       TO(QWERTY), KC_NO, KC_NO, KC_NO, KC_NO,
@@ -454,21 +453,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                 KC_NO, KC_LSFT,        KC_NO, KC_NO),
 
 [GAME_MOBA] = LAYOUT(
-    KC_TAB, KC_1, KC_2, KC_D, KC_F,                  P1, P2, KC_NO, KC_NO, KC_NO,
+    KC_TAB, KC_1, KC_2, KC_D, KC_F,                  P1, P2, P3, KC_NO, KC_NO,
     KC_4, KC_Q, KC_W, KC_E, KC_R,                    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
     KC_ESC, KC_V, KC_S, KC_3, KC_B,                  KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
               LCTL_T(KC_A), KC_SPC,                  TO(COLEMAK), TO(COLEMAK)),
 
 [GAME_FPS] = LAYOUT(
-    KC_TAB, KC_Q, KC_W, KC_E, KC_R,                  P1, P2, KC_NO, KC_NO, KC_NO,
+    KC_TAB, KC_Q, KC_W, KC_E, KC_R,                  P1, P2, P3, KC_NO, KC_NO,
     KC_LSFT, KC_A, KC_S, KC_D, KC_F,                 KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
     KC_LCTL, KC_1, KC_2, KC_3, KC_4,                 KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
                        KC_C, KC_SPC,                 TO(COLEMAK), TO(COLEMAK)),
 
 [NAV] = LAYOUT(
-	KC_ESC, KC_BTN1, KC_MS_U, KC_BTN2, KC_BTN3,		 LCTL(KC_W), RCS(KC_TAB), LCTL(KC_TAB), RCS(KC_T), KC_LALT,
-	KC_TAB, KC_MS_L, KC_MS_D, KC_MS_R, KC_PGUP,		 KC_ENT, KC_LEFT, KC_DOWN, KC_UP, KC_RIGHT,
-	KC_LGUI, KC_WH_L, KC_WH_U, KC_WH_R, KC_PGDN,     RCS(KC_T), LCTL(KC_T), KC_ACL0, KC_ACL1, KC_ACL2,
-					     KC_WH_D, TO(COLEMAK),		 KC_LCTL, KC_LSFT),
+	KC_ESC, KC_BTN1, KC_MS_U, KC_BTN2, KC_BTN3,		 LCTL(KC_T), RCS(KC_TAB), LCTL(KC_W),RCS(KC_T), LCTL(KC_TAB),
+	KC_TAB, KC_MS_L, KC_MS_D, KC_MS_R, KC_PGUP,		 KC_NO, KC_LEFT, KC_DOWN, KC_UP, KC_RIGHT,
+	KC_LGUI, KC_WH_L, KC_WH_U, KC_WH_R, KC_PGDN,     KC_NO, KC_ACL0, KC_ACL1, KC_NO, KC_ENT,
+					     KC_WH_D, TO(COLEMAK),		 KC_SPC, KC_LSFT),
 
 };
