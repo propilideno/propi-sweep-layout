@@ -309,9 +309,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
         case C_ACUTE:
             if (record->event.pressed) {
-                register_code(KC_RALT);
-                tap_code(KC_COMM);
-                unregister_code(KC_RALT);
+                if(mac_state == true){
+                    register_code(KC_RALT);
+                    tap_code(KC_C);
+                    unregister_code(KC_RALT);
+                }
+                else{
+                    register_code(KC_RALT);
+                    tap_code(KC_COMM);
+                    unregister_code(KC_RALT);
+                }
             }
             break;
 
@@ -449,8 +456,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [ACC] = LAYOUT(
     KC_NO, A_ACUTE, E_ACUTE, O_ACUTE, I_ACUTE,       TO(QWERTY), KC_NO, KC_NO, KC_NO, KC_NO,
-    A_GRV, A_CIRC, E_CIRC, O_CIRC, C_ACUTE,          TO(GAME_MOBA), TO(NAV_MAC), KC_NO, KC_NO, KC_NO,
-    KC_NO, A_TILDE, KC_NO, O_TILDE, U_ACUTE,         TO(GAME_FPS), TO(NAV), KC_NO, KC_NO, KC_NO,
+    A_GRV, A_CIRC, E_CIRC, O_CIRC, KC_NO,            TO(GAME_MOBA), TO(NAV_MAC), KC_NO, KC_NO, KC_NO,
+    KC_NO, A_TILDE, C_ACUTE, O_TILDE, U_ACUTE,       TO(GAME_FPS), TO(NAV), KC_NO, KC_NO, KC_NO,
                             KC_NO, KC_LSFT,          KC_NO, KC_NO),
 
 [GAME_MOBA] = LAYOUT(
