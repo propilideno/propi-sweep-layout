@@ -455,10 +455,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                         KC_TRNS,KC_NO,                   KC_NO, KC_TRNS),
 
 [ACC] = LAYOUT(
-    KC_NO, A_ACUTE, E_ACUTE, O_ACUTE, I_ACUTE,       TO(QWERTY), KC_NO, KC_NO, KC_NO, KC_NO,
-    A_GRV, A_CIRC, E_CIRC, O_CIRC, KC_NO,            TO(GAME_MOBA), TO(NAV_MAC), KC_NO, KC_NO, KC_NO,
+    KC_NO, A_CIRC, E_CIRC, O_CIRC, I_ACUTE,          TO(QWERTY), KC_NO, KC_NO, KC_NO, KC_NO,
+    A_GRV, A_ACUTE, E_ACUTE, O_ACUTE, KC_NO,         TO(GAME_MOBA), TO(NAV_MAC), KC_NO, KC_NO, KC_NO,
     KC_NO, A_TILDE, C_ACUTE, O_TILDE, U_ACUTE,       TO(GAME_FPS), TO(NAV), KC_NO, KC_NO, KC_NO,
-                            KC_NO, KC_LSFT,          KC_NO, KC_NO),
+                            KC_LSFT, KC_LSFT,          KC_NO, KC_NO),
 
 [GAME_MOBA] = LAYOUT(
     KC_TAB, KC_Q, KC_W, KC_E, KC_R,                  P1, P2, P3, KC_NO, KC_NO,
