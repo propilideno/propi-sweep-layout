@@ -454,16 +454,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                             KC_NO, KC_LSFT,          KC_NO, KC_NO),
 
 [GAME_MOBA] = LAYOUT(
-    KC_TAB, KC_1, KC_2, KC_D, KC_F,                  P1, P2, P3, KC_NO, KC_NO,
-    KC_4, KC_Q, KC_W, KC_E, KC_R,                    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-    KC_ESC, KC_V, KC_S, KC_3, KC_B,                  KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-              LCTL_T(KC_A), KC_SPC,                  TO(COLEMAK), TO(COLEMAK)),
+    KC_TAB, KC_Q, KC_W, KC_E, KC_R,                  P1, P2, P3, KC_NO, KC_NO,
+    LALT_T(KC_4), KC_A, KC_S, KC_D, KC_F,            KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+    KC_5, KC_1, KC_2, KC_3, KC_B,                    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+            LSFT_T(KC_V), LCTL_T(KC_SPC),            TO(COLEMAK), TO(COLEMAK)),
 
 [GAME_FPS] = LAYOUT(
     KC_TAB, KC_Q, KC_W, KC_E, KC_R,                  P1, P2, P3, KC_NO, KC_ESC,
     KC_LSFT, KC_A, KC_S, KC_D, KC_F,                 KC_H, KC_NO, KC_NO, KC_NO, KC_NO,
-    KC_LCTL, KC_1, KC_2, KC_3, KC_4,                 KC_Z, KC_X, KC_NO, KC_NO, KC_NO,
-                       KC_V, KC_SPC,                 TO(COLEMAK), TO(COLEMAK)),
+    LCTL_T(KC_H), KC_1, KC_2, KC_3, KC_4,               KC_Z, KC_X, KC_NO, KC_NO, KC_NO,
+                         KC_V, KC_SPC,               TO(COLEMAK), TO(COLEMAK)),
 
 [NAV] = LAYOUT(
 	KC_ESC, KC_BTN1, KC_MS_U, KC_BTN2, KC_BTN3,		 LCTL(KC_T), RCS(KC_TAB), LCTL(KC_W),RCS(KC_T), LCTL(KC_TAB),
