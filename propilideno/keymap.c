@@ -431,14 +431,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                          KC_NO, KC_TRNS,              KC_NO, KC_TRNS),
 
 [EXT] = LAYOUT(
-    KC_ESC, LCTL(KC_W), LCTL(KC_F), LSFT(KC_V), LSFT(KC_I),            KC_CAPS, KC_HOME, KC_PGDN, KC_PGUP, KC_END,
-    KC_LCTL, KC_LALT, KC_LSFT, KC_LGUI, LCTL(KC_A),                    LCTL(KC_T), KC_LEFT, KC_DOWN, KC_UP, KC_RIGHT,
-    LCTL(KC_Z), LCTL(KC_X), LCTL(KC_C), LCTL(KC_V), KC_TAB,            LCTL(KC_BSPC), KC_BSPC, KC_NO, KC_NO, KC_AGAIN,
+    KC_ESC, LCTL(KC_W), LCTL(KC_F), LSFT(KC_V), LSFT(KC_I),            LCTL(KC_T), KC_HOME, KC_PGDN, KC_PGUP, KC_END,
+    KC_LCTL, KC_LALT, KC_LSFT, KC_LGUI, LCTL(KC_A),                    KC_CAPS, KC_LEFT, KC_DOWN, KC_UP, KC_RIGHT,
+    LCTL(KC_Z), LCTL(KC_X), LCTL(KC_C), LCTL(KC_V), KC_TAB,            LCTL(KC_BSPC), KC_BSPC, KC_NO, KC_NO, RCS(KC_Z),
                                            KC_TRNS, KC_DEL,            KC_ENT, MO(FUNC)),
 [EXT_MAC] = LAYOUT(
-    KC_ESC, LGUI(KC_W), LGUI(KC_F), LSFT(KC_V), LSFT(KC_I),            KC_CAPS, KC_HOME, KC_PGDN, KC_PGUP, KC_END,
-    KC_LCTL, KC_LALT, KC_LSFT, KC_LGUI, LGUI(KC_A),                    LALT(KC_T), KC_LEFT, KC_DOWN, KC_UP, KC_RIGHT,
-    LGUI(KC_Z), LGUI(KC_X), LGUI(KC_C), LGUI(KC_V), KC_TAB,            LALT(KC_BSPC), KC_BSPC, KC_NO, KC_NO, KC_AGAIN,
+    KC_ESC, LGUI(KC_W), LGUI(KC_F), LSFT(KC_V), LSFT(KC_I),            LALT(KC_T), KC_HOME, KC_PGDN, KC_PGUP, KC_END,
+    KC_LCTL, KC_LALT, KC_LSFT, KC_LGUI, LGUI(KC_A),                    KC_CAPS, KC_LEFT, KC_DOWN, KC_UP, KC_RIGHT,
+    LGUI(KC_Z), LGUI(KC_X), LGUI(KC_C), LGUI(KC_V), KC_TAB,            LALT(KC_BSPC), KC_BSPC, KC_NO, KC_NO, LSG(KC_Z),
                                            KC_TRNS, KC_DEL,            KC_ENT, MO(FUNC)),
 
 [FUNC] = LAYOUT(
