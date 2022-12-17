@@ -20,11 +20,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MASTER_LEFT
 
 #define MOUSE_INITIAL_SPEED     1500 // 1000 before
-#define MOUSEKEY_BASE_SPEED     1500
+#define MOUSEKEY_BASE_SPEED     2000
 #define MOUSEKEY_DELAY          0
 #define MOUSEKEY_WHEEL_DELAY    0
 #define MOUSEKEY_MAX_SPEED      3
-#define MOUSEKEY_TIME_TO_MAX    48 // 64 before
+#define MOUSEKEY_TIME_TO_MAX    32 // 64 before
 
 #define MK_COMBINED
 

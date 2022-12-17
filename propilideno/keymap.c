@@ -16,6 +16,7 @@ enum layout_names {
     GAME_MOBA,
     GAME_FPS,
     NAV,
+    NAV_MAC,
 };
 
 // Used to extract the basic tapping keycode from a dual-role key.
@@ -448,9 +449,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [ACC] = LAYOUT(
     KC_NO, A_ACUTE, E_ACUTE, O_ACUTE, I_ACUTE,       TO(QWERTY), KC_NO, KC_NO, KC_NO, KC_NO,
-    A_GRV, A_CIRC, E_CIRC, O_CIRC, C_ACUTE,          TO(GAME_MOBA), TO(COLEMAK_MAC), KC_NO, KC_NO, KC_NO,
+    A_GRV, A_CIRC, E_CIRC, O_CIRC, C_ACUTE,          TO(GAME_MOBA), TO(NAV_MAC), KC_NO, KC_NO, KC_NO,
     KC_NO, A_TILDE, KC_NO, O_TILDE, U_ACUTE,         TO(GAME_FPS), TO(NAV), KC_NO, KC_NO, KC_NO,
-                                KC_NO, KC_LSFT,        KC_NO, KC_NO),
+                            KC_NO, KC_LSFT,          KC_NO, KC_NO),
 
 [GAME_MOBA] = LAYOUT(
     KC_TAB, KC_1, KC_2, KC_D, KC_F,                  P1, P2, P3, KC_NO, KC_NO,
@@ -459,15 +460,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
               LCTL_T(KC_A), KC_SPC,                  TO(COLEMAK), TO(COLEMAK)),
 
 [GAME_FPS] = LAYOUT(
-    KC_TAB, KC_Q, KC_W, KC_E, KC_R,                  P1, P2, P3, KC_NO, KC_NO,
-    KC_LSFT, KC_A, KC_S, KC_D, KC_F,                 KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-    KC_LCTL, KC_1, KC_2, KC_3, KC_4,                 KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-                       KC_C, KC_SPC,                 TO(COLEMAK), TO(COLEMAK)),
+    KC_TAB, KC_Q, KC_W, KC_E, KC_R,                  P1, P2, P3, KC_NO, KC_ESC,
+    KC_LSFT, KC_A, KC_S, KC_D, KC_F,                 KC_H, KC_NO, KC_NO, KC_NO, KC_NO,
+    KC_LCTL, KC_1, KC_2, KC_3, KC_4,                 KC_Z, KC_X, KC_NO, KC_NO, KC_NO,
+                       KC_V, KC_SPC,                 TO(COLEMAK), TO(COLEMAK)),
 
 [NAV] = LAYOUT(
 	KC_ESC, KC_BTN1, KC_MS_U, KC_BTN2, KC_BTN3,		 LCTL(KC_T), RCS(KC_TAB), LCTL(KC_W),RCS(KC_T), LCTL(KC_TAB),
 	KC_TAB, KC_MS_L, KC_MS_D, KC_MS_R, KC_PGUP,		 KC_NO, KC_LEFT, KC_DOWN, KC_UP, KC_RIGHT,
-	KC_LGUI, KC_WH_L, KC_WH_U, KC_WH_R, KC_PGDN,     KC_NO, KC_ACL0, KC_ACL1, KC_NO, KC_ENT,
+	KC_LGUI, KC_WH_L, KC_WH_U, KC_WH_R, KC_PGDN,     KC_LALT, KC_ACL0, KC_ACL1, KC_NO, KC_ENT,
 					     KC_WH_D, TO(COLEMAK),		 KC_SPC, KC_LSFT),
+
+[NAV_MAC] = LAYOUT(
+	KC_ESC, KC_BTN1, KC_MS_U, KC_BTN2, KC_BTN3,		 LGUI(KC_T), RCS(KC_TAB), LGUI(KC_W), LSG(KC_T), LCTL(KC_TAB),
+	KC_TAB, KC_MS_L, KC_MS_D, KC_MS_R, KC_PGUP,		 KC_NO, KC_LEFT, KC_DOWN, KC_UP, KC_RIGHT,
+	KC_LGUI, KC_WH_R, KC_WH_D, KC_WH_L, KC_PGDN,     KC_LGUI, KC_ACL0, KC_ACL1, KC_NO, KC_ENT,
+					KC_WH_U, TO(COLEMAK_MAC),		 KC_SPC, KC_LSFT),
 
 };
